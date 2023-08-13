@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hacker Name Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            color: #333333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hacker Name Generator</h1>
+        
+        <form id="nameForm">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Generate Hacker Name</button>
+        </form>
+        
+        <h2>Your Hacker Name:</h2>
+        <p id="hackerName"></p>
+        
+       <script>
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const hackerName = convertToHackerName(name);
+            document.getElementById("hackerName").textContent = hackerName;
+        });
+        
+        function convertToHackerName(name) {
+            const leetMap = {
+                "a": "4", "A": "4",
+                "e": "3", "E": "3",
+                "l": "1", "L": "1",
+                "o": "0", "O": "0",
+                "t": "7", "T": "7",
+                "s": "5", "S": "5"
+            };
+            
+            let hackerName = "";
+            for (let i = 0; i < name.length; i++) {
+                const char = name[i];
+                hackerName += leetMap[char] || char;
+            }
+            return hackerName;
+        }
+        </script>
+    </div>
+</body>
+</html>
