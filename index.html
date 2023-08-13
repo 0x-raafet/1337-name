@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hacker Name Generator</title>
+    <title>1337 Code Gen</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,26 +50,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hacker Name Generator</h1>
+        <h1>1337 Code Generator</h1>
         
         <form id="nameForm">
-            <label for="name">Enter your name:</label>
+            <label for="name">Enter your text:</label>
             <input type="text" id="name" name="name" required>
-            <button type="submit">Generate Hacker Name</button>
+            <button type="submit">generate code</button>
         </form>
         
-        <h2>Your Hacker Name:</h2>
-        <p id="hackerName"></p>
+        <h2>Leet (1337) code:</h2>
+        <p id="hackCode"></p>
         
        <script>
         document.getElementById("nameForm").addEventListener("submit", function(event) {
             event.preventDefault();
             const name = document.getElementById("name").value;
-            const hackerName = convertToHackerName(name);
-            document.getElementById("hackerName").textContent = hackerName;
+            const hackerCode = convertToHackerCode(name);
+            document.getElementById("hackCode").textContent = hackerCode;
         });
         
-        function convertToHackerName(name) {
+        function convertToHackerCode(name) {
             const leetMap = {
                 "a": "4", "A": "4",
                 "e": "3", "E": "3",
@@ -79,12 +79,12 @@
                 "s": "5", "S": "5"
             };
             
-            let hackerName = "";
+            let hackerCode = "";
             for (let i = 0; i < name.length; i++) {
                 const char = name[i];
-                hackerName += leetMap[char] || char;
+                hackerCode += leetMap[char] || char;
             }
-            return hackerName;
+            return hackerCode;
         }
         </script>
     </div>
